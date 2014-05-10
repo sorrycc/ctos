@@ -31,7 +31,8 @@
     "chalk": "^0.4.0",
     "commander": "^2.2.0",
     "download": "^0.1.15",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "spm": "~3.0.0-rc2"
   },
   "devDependencies": {
     "mocha": "^1.18.2",

@@ -1,8 +1,10 @@
 'use strict';
 
 var path = require('path');
+var util = require('util');
 var download = require('./lib/download');
 var transform = require('./lib/transform');
+var publish = require('./lib/publish');
 var log = require('./lib/util/log');
 
 module.exports = function(pkg, opt, cb) {
@@ -27,28 +29,31 @@ module.exports = function(pkg, opt, cb) {
 
     // transform component package to spm@3x
     var dir = path.join(tmpDir, pkg.folder);
+    console.log(pkg.folder);
+    console.log(dir);
     log.info('do transform', dir);
     transform(dir); 
     log.info('done');
 
-    cb && cb(null, dir);
+    publish(dir, cb);
   });
 }
 
 function parse(pkg) {
   var _pkg = pkg.split('@');
-  return {
+  var ret = {
     user: _pkg[0].split('/')[0],
     name: _pkg[0].split('/')[1],
     repo: _pkg[0],
-    version: _pkg[1],
-    folder: _pkg.join('-')
+    version: _pkg[1]
   };
+  ret.folder = util.format('%s-%s', ret.name, ret.version);
+  return ret;
 }
 
 if (!module.parent) {
   module.exports('visionmedia/page.js@1.3.7', function(err, dir) {
-    console.log(dir);
+    console.log('donedonedone');
   });
 }
 
