@@ -1,0 +1,36 @@
+{
+  "name": "component-transformer",
+  "version": "0.1.0",
+  "description": "a tool to transform component package to spm@3x package",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sorrycc/component-transformer"
+  },
+  "keywords": [
+    "component",
+    "spm",
+    "transformer"
+  ],
+  "author": "chencheng <sorrycc@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sorrycc/component-transformer/issues"
+  },
+  "homepage": "https://github.com/sorrycc/component-transformer",
+  "dependencies": {
+    "chalk": "^0.4.0",
+    "download": "^0.1.15",
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "mocha": "^1.18.2",
+    "should": "^3.3.1"
+  }
+}
