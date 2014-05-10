@@ -53,9 +53,3 @@ function parse(pkg) {
   return ret;
 }
 
-if (!module.parent) {
-  module.exports('visionmedia/page.js@1.3.5', function(err, dir) {
-    console.log('donedonedone');
-  });
-}
-
