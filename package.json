@@ -9,6 +9,9 @@
   "scripts": {
     "test": "mocha"
   },
+  "bin": {
+    "component-transformer": "cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/sorrycc/component-transformer"
@@ -26,6 +29,7 @@
   "homepage": "https://github.com/sorrycc/component-transformer",
   "dependencies": {
     "chalk": "^0.4.0",
+    "commander": "^2.2.0",
     "download": "^0.1.15",
     "lodash": "^2.4.1"
   },
