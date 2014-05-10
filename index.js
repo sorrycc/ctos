@@ -29,13 +29,15 @@ module.exports = function(pkg, opt, cb) {
 
     // transform component package to spm@3x
     var dir = path.join(tmpDir, pkg.folder);
-    console.log(pkg.folder);
-    console.log(dir);
-    log.info('do transform', dir);
+    log.info('download', 'end');
+    log.info('dir', dir);
     transform(dir); 
-    log.info('done');
 
-    publish(dir, cb);
+    // publish to spmjs.io
+    publish(dir, function() {
+      log.info('done');
+      cb(null);
+    });
   });
 }
 
@@ -52,7 +54,7 @@ function parse(pkg) {
 }
 
 if (!module.parent) {
-  module.exports('visionmedia/page.js@1.3.7', function(err, dir) {
+  module.exports('visionmedia/page.js@1.3.5', function(err, dir) {
     console.log('donedonedone');
   });
 }
