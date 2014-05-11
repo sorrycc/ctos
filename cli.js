@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 'use strict';
 
-var main = require('./');
 var program = require('commander');
 
 program
@@ -15,4 +14,4 @@ if (!pkg) {
   return program.help();
 }
 
-main(pkg);
+require('./')(pkg);
