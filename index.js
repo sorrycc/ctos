@@ -98,6 +98,6 @@ function normalizePkg(pkg) {
     repo: _pkg[0],
     version: _pkg[1]
   };
-  ret.folder = util.format('%s-%s', ret.name, ret.version);
+  ret.folder = util.format('%s-%s', ret.name, ret.version.replace(/^v/, ''));
   return ret;
 }
