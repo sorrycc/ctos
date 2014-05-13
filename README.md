@@ -11,10 +11,10 @@ $ npm install c2s -g
 ## Usage
 
 ```bash
-# install specific version
+# transform specific version
 $ c2s visionmedia/page.js@1.3.4
 
-# install all versions
+# transform all versions under a repo
 $ c2s visionmedia/page.js
 ```
 
