@@ -10,7 +10,7 @@
     "test": "./node_modules/.bin/mocha --reporter spec --require should ./test/"
   },
   "bin": {
-    "c2s": "cli.js"
+    "c2s": "bin/c2s"
   },
   "repository": {
     "type": "git",

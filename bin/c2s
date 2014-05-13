@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+'use strict';
+
+var path = require('path');
+var spawn = require('child_process').spawn;
+var log = require('../lib/util/log');
+
+var mirrorVersion = +process.version.match(/^v0.([^\.]+)/)[1];
+if (mirrorVersion < 11) {
+  log.error('error', 'node 0.11 required');
+  process.exit(1);
+}
+
+var pkg = process.argv[2];
+if (!pkg) {
+  log.error('error', 'package required');
+  process.exit(1);
+}
+
+var cli = path.join(__dirname, '../cli.js');
+spawn(process.execPath, ['--harmony', cli, pkg], {
+  stdio: 'inherit'
+});
+
+
