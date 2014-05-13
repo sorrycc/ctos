@@ -2,6 +2,8 @@
 'use strict';
 
 var program = require('commander');
+var co = require('co');
+var c2s = require('./');
 
 program
   .usage('PACKAGE')
@@ -14,4 +16,6 @@ if (!pkg) {
   return program.help();
 }
 
-require('./')(pkg);
+co(function *() {
+  yield c2s(pkg);
+});
