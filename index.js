@@ -20,20 +20,22 @@ module.exports = function *(pkg, opt) {
   // trans specific version
   var hasVersion = pkg.indexOf('@') > -1;
   if (hasVersion) {
-    yield run(pkg, opt);
+    yield runPkg(pkg, opt);
     return;
   }
 
   // trans all versions under a repo
   var repo = pkg;
   var tags = yield getTags(repo);
-  tags.forEach(function(tag) {
+  var arr = [];
+  for (var i=0; i<tags.length; i++) {
+    var tag = tags[i];
     var _pkg = repo + '@' + tag;
-    yield run(_pkg, opt);
-  });
+    yield runPkg(_pkg, opt);
+  }
 };
 
-function run *(pkg, opt) {
+function *runPkg(pkg, opt) {
   log.title('transform', pkg);
   
   opt = opt || {};
@@ -71,13 +73,13 @@ function run *(pkg, opt) {
   log.info('done');
 }
 
-function getTags *(repo) {
+function *getTags(repo) {
   var url = 'https://github.com/' + repo + '/releases';
 
   log.info('request', url);
   var res = yield get(url);
 
-  var $ = cheerio.load(body);
+  var $ = cheerio.load(res[0].body);
   var tags = [];
   $('div.tag-info span.tag-name').each(function() {
     tags.push($(this).html().trim());

@@ -18,4 +18,4 @@ if (!pkg) {
 
 co(function *() {
   yield c2s(pkg);
-});
+})();
