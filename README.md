@@ -1,6 +1,6 @@
-# Component Transformer
+# C2S
 
-Component transformer is a tool to transform component package to spm@3x package.
+c2s is a tool to transform component package to [spm@3x](http://www.spmjs.io/).
 
 ## Install
 
