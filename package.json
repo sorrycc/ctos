@@ -1,5 +1,5 @@
 {
-  "name": "component-transformer",
+  "name": "c2s",
   "version": "0.1.0",
   "description": "a tool to transform component package to spm@3x package",
   "main": "index.js",
@@ -10,32 +10,37 @@
     "test": "mocha"
   },
   "bin": {
-    "component-transformer": "cli.js"
+    "c2s": "cli.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sorrycc/component-transformer"
+    "url": "https://github.com/sorrycc/c2s"
   },
   "keywords": [
     "component",
-    "spm",
-    "transformer"
+    "transformer",
+    "spm"
   ],
   "author": "chencheng <sorrycc@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sorrycc/component-transformer/issues"
+    "url": "https://github.com/sorrycc/c2s/issues"
   },
-  "homepage": "https://github.com/sorrycc/component-transformer",
+  "homepage": "https://github.com/sorrycc/c2s",
+  "engines": {
+    "node": ">=0.11.10"
+  },
   "dependencies": {
     "async": "^0.8.0",
     "chalk": "^0.4.0",
     "cheerio": "^0.16.0",
+    "co": "^3.0.6",
     "commander": "^2.2.0",
     "download": "^0.1.15",
     "lodash": "^2.4.1",
     "request": "^2.34.0",
-    "spm": "~3.0.0-rc2"
+    "spm": "3.0.0-rc4",
+    "thunkify": "^2.1.1"
   },
   "devDependencies": {
     "mocha": "^1.18.2",

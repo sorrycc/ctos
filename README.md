@@ -5,17 +5,17 @@ Component transformer is a tool to transform component package to spm@3x package
 ## Install
 
 ```bash
-$ npm install component-transformer -g
+$ npm install c2s -g
 ```
 
 ## Usage
 
 ```bash
 # install specific version
-$ component-transformer visionmedia/page.js@1.3.4
+$ c2s visionmedia/page.js@1.3.4
 
 # install all versions
-$ component-transformer visionmedia/page.js
+$ c2s visionmedia/page.js
 ```
 
 ## LISENCE
