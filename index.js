@@ -62,10 +62,10 @@ function *runPkg(pkg, opt) {
     return;
   }
   var c = readJSON(path.join(dir, 'component.json'));
-  if (!c.repo && !c.repository) {
-    log.error('error', 'repo or repository not found in component.json');
-    return;
-  }
+  // if (!c.repo && !c.repository) {
+  //   log.error('error', 'repo or repository not found in component.json');
+  //   return;
+  // }
 
   // transform component package to spm@3x
   transform(dir);
@@ -84,9 +84,15 @@ function *getTags(repo) {
 
   var $ = cheerio.load(res[0].body);
   var tags = [];
+
+  $("div.release h1.release-title a").each(function() {
+    tags.push($(this).html().trim());
+  });
+
   $('div.tag-info span.tag-name').each(function() {
     tags.push($(this).html().trim());
   });
+
   tags.reverse();
 
   log.info('tags', tags.join(', '));
