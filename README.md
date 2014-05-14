@@ -11,11 +11,14 @@ $ npm install ctos -g
 ## Usage
 
 ```bash
-# transform specific version
+# transform specific release
 $ ctos visionmedia/page.js@1.3.4
 
-# transform all versions under a repo
+# transform lastest release of a repo
 $ ctos visionmedia/page.js
+
+# transform lastest 2 releases of a repo
+$ ctos visionmedia/page.js --count 2
 ```
 
 ## LISENCE
