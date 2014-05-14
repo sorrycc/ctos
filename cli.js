@@ -3,7 +3,7 @@
 
 var program = require('commander');
 var co = require('co');
-var c2s = require('./');
+var ctos = require('./');
 
 program
   .usage('PACKAGE')
@@ -17,5 +17,5 @@ if (!pkg) {
 }
 
 co(function *() {
-  yield c2s(pkg);
+  yield ctos(pkg);
 })();

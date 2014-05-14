@@ -1,5 +1,5 @@
 {
-  "name": "c2s",
+  "name": "ctos",
   "version": "0.2.0",
   "description": "a tool to transform component package to spm@3x package",
   "main": "index.js",
@@ -10,11 +10,11 @@
     "test": "./node_modules/.bin/mocha --reporter spec --require should ./test/"
   },
   "bin": {
-    "c2s": "bin/c2s"
+    "ctos": "bin/ctos"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sorrycc/c2s"
+    "url": "https://github.com/sorrycc/ctos"
   },
   "keywords": [
     "component",
@@ -24,9 +24,9 @@
   "author": "chencheng <sorrycc@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sorrycc/c2s/issues"
+    "url": "https://github.com/sorrycc/ctos/issues"
   },
-  "homepage": "https://github.com/sorrycc/c2s",
+  "homepage": "https://github.com/sorrycc/ctos",
   "engines": {
     "node": ">=0.11.10"
   },
