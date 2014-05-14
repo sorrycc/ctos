@@ -31,7 +31,7 @@ module.exports = function *(pkg, opt) {
   var tags = yield getTags(repo);
   // 
   var count = opt.count || 1;
-  tags = tags.slice(tags.length - opt.count);
+  tags = tags.slice(tags.length - count);
   var arr = [];
   for (var i=0; i<tags.length; i++) {
     var tag = tags[i];
