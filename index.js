@@ -17,6 +17,8 @@ var log       = require('./lib/util/log');
 var readJSON  = require('./lib/util/readJSON');
 
 module.exports = function *(pkg, opt) {
+  opt = opt || {};
+
   // trans specific version
   var hasVersion = pkg.indexOf('@') > -1;
   if (hasVersion) {
@@ -27,6 +29,8 @@ module.exports = function *(pkg, opt) {
   // trans all versions under a repo
   var repo = pkg;
   var tags = yield getTags(repo);
+  // 
+  tags = tags.slice(tags.length - 1);
   var arr = [];
   for (var i=0; i<tags.length; i++) {
     var tag = tags[i];
@@ -38,7 +42,6 @@ module.exports = function *(pkg, opt) {
 function *runPkg(pkg, opt) {
   log.title('transform', pkg);
   
-  opt = opt || {};
   pkg = normalizePkg(pkg);
 
   var url = 'https://github.com/'+pkg.repo+'/archive/'+pkg.version+'.zip';
