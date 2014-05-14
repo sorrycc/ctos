@@ -11,15 +11,20 @@ if (mirrorVersion < 11) {
   process.exit(1);
 }
 
-var pkg = process.argv[2];
+var program = require('../lib/program');
+var pkg = program.args[0];
+
 if (!pkg) {
-  log.error('error', 'package required');
-  process.exit(1);
+  return program.help();
 }
 
 var cli = path.join(__dirname, '../cli.js');
-spawn(process.execPath, ['--harmony', cli, pkg], {
-  stdio: 'inherit'
+
+var args = ['--harmony', cli];
+program.rawArgs.slice(2).forEach(function(arg) {
+  args.push(arg);
 });
 
-
+spawn(process.execPath, args, {
+  stdio: 'inherit'
+});

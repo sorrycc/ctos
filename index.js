@@ -30,7 +30,8 @@ module.exports = function *(pkg, opt) {
   var repo = pkg;
   var tags = yield getTags(repo);
   // 
-  tags = tags.slice(tags.length - 1);
+  var count = opt.count || 1;
+  tags = tags.slice(tags.length - opt.count);
   var arr = [];
   for (var i=0; i<tags.length; i++) {
     var tag = tags[i];
@@ -45,7 +46,7 @@ function *runPkg(pkg, opt) {
   pkg = normalizePkg(pkg);
 
   var url = 'https://github.com/'+pkg.repo+'/archive/'+pkg.version+'.zip';
-  var tmpDir = opt.tmpDir || process.env.TMPDIR || '/tmp/';
+  var tmpDir = opt.tmp || process.env.TMPDIR || '/tmp/';
   var dir = path.join(tmpDir, pkg.folder);
 
   log.info('tmpDir', tmpDir);

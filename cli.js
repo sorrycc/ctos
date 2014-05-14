@@ -1,21 +1,12 @@
 #!/usr/bin/env node
 'use strict';
 
-var program = require('commander');
 var co = require('co');
 var ctos = require('./');
-
-program
-  .usage('PACKAGE')
-  .version(require('./package').version, '-v, --version')
-  .parse(process.argv);
+var program = require('./lib/program');
 
 var pkg = program.args[0];
 
-if (!pkg) {
-  return program.help();
-}
-
 co(function *() {
-  yield ctos(pkg);
+  yield ctos(pkg, program);
 })();
