@@ -1,0 +1,12 @@
+{
+  "name": "css-toggle-switch",
+  "version": "2.1.4",
+  "author": "Ionut Colceriu",
+  "description": "Accessible, CSS-only toggle switches with full keyboard access and mobile support, using standard form controls.",
+  "keywords": [ "toggle", "switch", "ui" ],
+  "repo": "ghinda/css-toggle-switch",
+  "styles": [
+    "a.css",
+    "b.css"
+  ]
+}

@@ -39,10 +39,11 @@
     "download": "^0.1.15",
     "lodash": "^2.4.1",
     "request": "^2.34.0",
-    "spm": "3.0.0-rc4",
+    "spm": "3.0.0-rc5",
     "thunkify": "^2.1.1"
   },
   "devDependencies": {
+    "fs-extra": "^0.8.1",
     "mocha": "^1.18.2",
     "should": "^3.3.1"
   }

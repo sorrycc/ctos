@@ -85,7 +85,7 @@ function *getTags(repo) {
   var $ = cheerio.load(res[0].body);
   var tags = [];
 
-  $("div.release h1.release-title a").each(function() {
+  $('div.release span.css-truncate-target').each(function() {
     tags.push($(this).html().trim());
   });
 
