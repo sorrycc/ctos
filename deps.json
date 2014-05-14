@@ -21,5 +21,11 @@
   "ianstormtaylor/to-camel-case": ["to-camel-case", "0.2.1"],
   "component/within-document": ["within-document", "0.0.1"],
   "component/domify": ["domify", "1.2.2"],
-  "component/css": ["css", "0.0.5"]
+  "component/css": ["css", "0.0.5"],
+  "component/query": ["query", "0.0.3"],
+  "component/matches-selector": ["matches-selector", "0.1.2"],
+  "component/event": ["event", "0.1.3"],
+  "component/events": ["events", "1.0.6"],
+  "component/delegate": ["delegate", "0.2.1"],
+  "discore/closest": ["closest", "0.1.2"]
 }

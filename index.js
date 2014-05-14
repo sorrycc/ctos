@@ -85,12 +85,16 @@ function *getTags(repo) {
   var $ = cheerio.load(res[0].body);
   var tags = [];
 
-  $('div.release span.css-truncate-target').each(function() {
-    tags.push($(this).html().trim());
-  });
-
-  $('div.tag-info span.tag-name').each(function() {
-    tags.push($(this).html().trim());
+  $('div.release-timeline').children().each(function() {
+    if ($(this).hasClass('release-timeline-tags')) {
+      $('div.tag-info span.tag-name', this).each(function() {
+        tags.push($(this).html().trim());
+      });
+    } else if ($(this).hasClass('release')) {
+      $('div.release span.css-truncate-target', this).each(function() {
+        tags.push($(this).html().trim());
+      });
+    }
   });
 
   tags.reverse();
