@@ -2,6 +2,8 @@
 
 a tool to transform component package to [spm@3x](http://www.spmjs.io/).
 
+`由于 spm3x 暂不支持 * 作为依赖的版本号，所有有依赖不在但不在 deps.json 里的不能用次工具转换。`
+
 ## Install
 
 ```bash
