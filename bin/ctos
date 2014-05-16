@@ -4,16 +4,9 @@
 var path = require('path');
 var spawn = require('child_process').spawn;
 var log = require('../lib/util/log');
-
-var mirrorVersion = +process.version.match(/^v0.([^\.]+)/)[1];
-if (mirrorVersion < 11) {
-  log.error('error', 'node 0.11 required');
-  process.exit(1);
-}
-
 var program = require('../lib/program');
-var pkg = program.args[0];
 
+var pkg = program.args[0];
 if (!pkg) {
   return program.help();
 }

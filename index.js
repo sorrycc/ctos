@@ -6,7 +6,6 @@ var util = require('util');
 var request = require('request');
 var cheerio = require('cheerio');
 var async = require('async');
-var Socks5ClientHttpsAgent = require('socks5-https-client/lib/Agent');
 
 var download  = require('./lib/download');
 var transform = require('./lib/transform');
@@ -26,7 +25,12 @@ module.exports = function(pkg, opt) {
 
   // trans all versions under a repo
   var repo = pkg;
-  getTags(repo, function(err, tags) {
+  getTags(repo, opt, function(err, tags) {
+    if (err) {
+      log.error('error', err.toString());
+      return;
+    }
+
     var count = opt.count || 1;
     tags = tags.slice(tags.length - count);
 
@@ -50,7 +54,7 @@ function runPkg(pkg, opt, next) {
 
   log.info('download', url);
   // download zip and extract
-  download(url, tmpDir, {extract:true}, function(err) {
+  download(url, tmpDir, {extract:true,agent:opt.agent}, function(err) {
     log.info('download', 'end');
     log.info('folder', dir);
 
@@ -76,11 +80,11 @@ function runPkg(pkg, opt, next) {
   });
 }
 
-function getTags(repo, cb) {
+function getTags(repo, opt, cb) {
   var url = 'https://github.com/' + repo + '/releases';
 
   log.info('request', url);
-  request(url, function(err, res, body) {
+  request(url, {agent:opt.agent}, function(err, res, body) {
     if (err || res.statusCode != 200) {
       return cb(err || 'statusCode is not 200: ' + res.statusCode);
     }

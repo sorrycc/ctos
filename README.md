@@ -19,6 +19,9 @@ $ ctos visionmedia/page.js
 
 # transform lastest 2 releases of a repo
 $ ctos visionmedia/page.js --count 2
+
+# transform using sock5 proxy
+$ ctos --proxy localhost:8387 visionmedia/page.js
 ```
 
 ## LISENCE
