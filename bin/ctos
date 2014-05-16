@@ -18,13 +18,4 @@ if (!pkg) {
   return program.help();
 }
 
-var cli = path.join(__dirname, '../cli.js');
-
-var args = ['--harmony', cli];
-program.rawArgs.slice(2).forEach(function(arg) {
-  args.push(arg);
-});
-
-spawn(process.execPath, args, {
-  stdio: 'inherit'
-});
+require('../index')(pkg, program);

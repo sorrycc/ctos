@@ -2,8 +2,6 @@
 
 a tool to transform component package to [spm@3x](http://www.spmjs.io/).
 
-`node 0.11.x required`
-
 ## Install
 
 ```bash
