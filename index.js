@@ -1,7 +1,7 @@
 'use strict';
 
 var path = require('path');
-var fs = require('fs');
+var fs = require('fs-extra');
 var util = require('util');
 var request = require('request');
 var cheerio = require('cheerio');
@@ -11,7 +11,6 @@ var download  = require('./lib/download');
 var transform = require('./lib/transform');
 var publish   = require('./lib/publish');
 var log       = require('./lib/util/log');
-var readJSON  = require('./lib/util/readJSON');
 
 module.exports = function(pkg, opt) {
   opt = opt || {};
@@ -121,4 +120,12 @@ function normalizePkg(pkg) {
   };
   ret.folder = util.format('%s-%s', ret.name, ret.version.replace(/^v/, ''));
   return ret;
+}
+
+function readJSON(file) {
+  if (fs.existsSync(file)) {
+    return fs.readJSONSync(file);
+  } else {
+    return null;
+  }
 }
