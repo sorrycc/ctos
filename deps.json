@@ -9,6 +9,8 @@
   "component/underscore": ["underscore", "1.6.0"],
   "jashkenas/underscore": ["underscore", "1.6.0"],
   "jashkenas/backbone": ["backbone", "1.1.2"],
+  "segmentio/extend": ["extend", "1.0.0"],
+  "javve/to-string": ["to-string", "0.1.0"],
   "matchdav/knockout": ["knockout", "3.0.0"],
   "abpetkov/transitionize": ["transitionize", "0.0.2"],
   "ftlabs/fastclick": ["fastclick", "1.0.1"],
