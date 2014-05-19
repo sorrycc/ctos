@@ -6,6 +6,7 @@ var util = require('util');
 var request = require('request');
 var cheerio = require('cheerio');
 var async = require('async');
+var exec = require("child_process").exec;
 
 var download  = require('./lib/download');
 var transform = require('./lib/transform');
@@ -30,6 +31,22 @@ module.exports = function(pkg, opt) {
       return;
     }
 
+    // no tag, git clone instead
+    if (!tags.length) {
+      log.info('info', 'no tag release, clone instead');
+      var repoUrl = 'git@github.com:' + repo + '.git';
+      var tmpDir = opt.tmp || process.env.TMPDIR || '/tmp/';
+      var dir = tmpDir + repo.replace(/\//g, '-') + (+new Date());
+      log.info('clone', repoUrl);
+      log.info('clone path', dir);
+      exec('git clone ' + repoUrl + ' ' + dir, function(err, stdout, stderr) {
+        if (stderr) console.log(stderr);
+        doTransform(dir);
+      });
+      return;
+    }
+
+    // transform tags
     var count = opt.count || 1;
     tags = tags.slice(tags.length - count);
 
@@ -56,26 +73,29 @@ function runPkg(pkg, opt, next) {
   download(url, tmpDir, {extract:true,agent:opt.agent}, function(err) {
     log.info('download', 'end');
     log.info('folder', dir);
+    doTransform(dir, next);
+  });
+}
 
-    // valid
-    if (!fs.existsSync(path.join(dir, 'component.json'))) {
-      log.error('error', 'component.json not exist');
-      return;
-    }
-    var c = readJSON(path.join(dir, 'component.json'));
-    // if (!c.repo && !c.repository) {
-    //   log.error('error', 'repo or repository not found in component.json');
-    //   return;
-    // }
+function doTransform(dir, cb) {
+  // valid
+  if (!fs.existsSync(path.join(dir, 'component.json'))) {
+    log.error('error', 'component.json not exist');
+    return;
+  }
+  // var c = readJSON(path.join(dir, 'component.json'));
+  // if (!c.repo && !c.repository) {
+  //   log.error('error', 'repo or repository not found in component.json');
+  //   return;
+  // }
 
-    // transform component package to spm@3x
-    transform(dir);
+  // transform component package to spm@3x
+  transform(dir);
 
-    // publish to spmjs.io
-    publish(dir, function(err) {
-      log.info('done');
-      next();
-    });
+  // publish to spmjs.io
+  publish(dir, function(err) {
+    log.info('done');
+    cb && cb();
   });
 }
 
