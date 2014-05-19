@@ -41,7 +41,7 @@ module.exports = function(pkg, opt) {
       log.info('clone path', dir);
       exec('git clone ' + repoUrl + ' ' + dir, function(err, stdout, stderr) {
         if (stderr) console.log(stderr);
-        doTransform(dir);
+        doTransform(dir, opt);
       });
       return;
     }
@@ -73,11 +73,11 @@ function runPkg(pkg, opt, next) {
   download(url, tmpDir, {extract:true,agent:opt.agent}, function(err) {
     log.info('download', 'end');
     log.info('folder', dir);
-    doTransform(dir, next);
+    doTransform(dir, opt, next);
   });
 }
 
-function doTransform(dir, cb) {
+function doTransform(dir, opt, cb) {
   // valid
   if (!fs.existsSync(path.join(dir, 'component.json'))) {
     log.error('error', 'component.json not exist');
@@ -93,7 +93,7 @@ function doTransform(dir, cb) {
   transform(dir);
 
   // publish to spmjs.io
-  publish(dir, function(err) {
+  publish(dir, opt.force, function(err) {
     log.info('done');
     cb && cb();
   });
