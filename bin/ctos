@@ -13,6 +13,7 @@ program
   .option('-c, --count <count>', 'how many last releases to transform, default is 1')
   .option('-p, --proxy <proxy>', 'sock5 proxy to request github')
   .option('-f, --force', 'force publish')
+  .option('--save', 'save current package to deps.json')
   .option('--tmp', 'tmp path to save downloaded package')
   .parse(process.argv);
 

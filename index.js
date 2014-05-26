@@ -90,13 +90,22 @@ function doTransform(dir, opt, cb) {
   // }
 
   // transform component package to spm@3x
-  transform(dir);
+  var newPkg = transform(dir);
+
+  // write deps to deps.json
+  if (opt.save) {
+    writeDeps(newPkg.name, newPkg.repo);
+  }
 
   // publish to spmjs.io
   publish(dir, opt.force, function(err) {
     log.info('done');
     cb && cb();
   });
+}
+
+function writeDeps(name, repo) {
+  
 }
 
 function getTags(repo, opt, cb) {
