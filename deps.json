@@ -158,5 +158,25 @@
   "component/raf": [
     "raf",
     "1.1.3"
+  ],
+  "component/bind": [
+    "bind",
+    "0.0.1"
+  ],
+  "enyo/domready": [
+    "domready",
+    "0.0.1"
+  ],
+  "timoxley/dom-support": [
+    "dom-support",
+    "0.0.2"
+  ],
+  "timoxley/offset": [
+    "offset",
+    "0.0.3"
+  ],
+  "undefined": [
+    "tip",
+    "1.0.3"
   ]
 }
