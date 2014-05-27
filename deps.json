@@ -119,10 +119,6 @@
     "domify",
     "1.2.2"
   ],
-  "component/css": [
-    "css",
-    "0.0.5"
-  ],
   "component/query": [
     "query",
     "0.0.3"
@@ -174,9 +170,5 @@
   "timoxley/offset": [
     "offset",
     "0.0.3"
-  ],
-  "undefined": [
-    "tip",
-    "1.0.3"
   ]
 }
