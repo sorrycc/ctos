@@ -1,41 +1,162 @@
 {
-  "component/emitter": ["emitter", "1.1.2"],
-  "component/jquery": ["jquery", "1.9.1"],
-  "components/jquery": ["jquery", "1.9.1"],
-  "component/type": ["type", "1.0.0"],
-  "component/indexof": ["indexof", "0.0.3"],
-  "component/classes": ["classes", "1.2.1"],
-  "component/reduce": ["reduce", "1.0.1"],
-  "component/underscore": ["underscore", "1.6.0"],
-  "jashkenas/underscore": ["underscore", "1.6.0"],
-  "jashkenas/backbone": ["backbone", "1.1.2"],
-  "segmentio/extend": ["extend", "1.0.0"],
-  "javve/to-string": ["to-string", "0.1.0"],
-  "javve/get-attribute": ["get-attribute", "0.0.1"],
-  "javve/natural-sort": ["natural-sort", "1.0.0"],
-  "javve/is-collection": ["is-collection", "0.0.1"],
-  "javve/get-by-class": ["get-by-class", "0.0.2"],
-  "javve/events": ["javve-events", "0.0.2"],
-  "timoxley/to-array": ["to-array", "0.2.1"],
-  "matchdav/knockout": ["knockout", "3.0.0"],
-  "abpetkov/transitionize": ["transitionize", "0.0.2"],
-  "ftlabs/fastclick": ["fastclick", "1.0.1"],
-  "visionmedia/debug": ["debug", "0.8.1"],
-  "component/props": ["props", "1.1.1"],
-  "component/to-function": ["to-function", "2.0.3"],
-  "component/each": ["each", "0.2.2"],
-  "ianstormtaylor/to-no-case": ["to-no-case", "0.1.2"],
-  "ianstormtaylor/to-space-case": ["to-space-case", "0.1.3"],
-  "ianstormtaylor/to-camel-case": ["to-camel-case", "0.2.1"],
-  "component/within-document": ["within-document", "0.0.1"],
-  "component/domify": ["domify", "1.2.2"],
-  "component/css": ["css", "0.0.5"],
-  "component/query": ["query", "0.0.3"],
-  "component/matches-selector": ["matches-selector", "0.1.2"],
-  "component/event": ["event", "0.1.3"],
-  "component/events": ["events", "1.0.6"],
-  "component/delegate": ["delegate", "0.2.1"],
-  "component/json-fallback": ["json-fallback", "1.0.0"],
-  "component/json": ["json", "0.0.2"],
-  "discore/closest": ["closest", "0.1.2"]
+  "component/emitter": [
+    "emitter",
+    "1.1.2"
+  ],
+  "component/jquery": [
+    "jquery",
+    "1.9.1"
+  ],
+  "components/jquery": [
+    "jquery",
+    "1.9.1"
+  ],
+  "component/type": [
+    "type",
+    "1.0.0"
+  ],
+  "component/indexof": [
+    "indexof",
+    "0.0.3"
+  ],
+  "component/classes": [
+    "classes",
+    "1.2.1"
+  ],
+  "component/reduce": [
+    "reduce",
+    "1.0.1"
+  ],
+  "component/underscore": [
+    "underscore",
+    "1.6.0"
+  ],
+  "jashkenas/underscore": [
+    "underscore",
+    "1.6.0"
+  ],
+  "jashkenas/backbone": [
+    "backbone",
+    "1.1.2"
+  ],
+  "segmentio/extend": [
+    "extend",
+    "1.0.0"
+  ],
+  "javve/to-string": [
+    "to-string",
+    "0.1.0"
+  ],
+  "javve/get-attribute": [
+    "get-attribute",
+    "0.0.1"
+  ],
+  "javve/natural-sort": [
+    "natural-sort",
+    "1.0.0"
+  ],
+  "javve/is-collection": [
+    "is-collection",
+    "0.0.1"
+  ],
+  "javve/get-by-class": [
+    "get-by-class",
+    "0.0.2"
+  ],
+  "javve/events": [
+    "javve-events",
+    "0.0.2"
+  ],
+  "timoxley/to-array": [
+    "to-array",
+    "0.2.1"
+  ],
+  "matchdav/knockout": [
+    "knockout",
+    "3.0.0"
+  ],
+  "abpetkov/transitionize": [
+    "transitionize",
+    "0.0.2"
+  ],
+  "ftlabs/fastclick": [
+    "fastclick",
+    "1.0.1"
+  ],
+  "visionmedia/debug": [
+    "debug",
+    "0.8.1"
+  ],
+  "component/props": [
+    "props",
+    "1.1.1"
+  ],
+  "component/to-function": [
+    "to-function",
+    "2.0.3"
+  ],
+  "component/each": [
+    "each",
+    "0.2.2"
+  ],
+  "ianstormtaylor/to-no-case": [
+    "to-no-case",
+    "0.1.2"
+  ],
+  "ianstormtaylor/to-space-case": [
+    "to-space-case",
+    "0.1.3"
+  ],
+  "ianstormtaylor/to-camel-case": [
+    "to-camel-case",
+    "0.2.1"
+  ],
+  "component/within-document": [
+    "within-document",
+    "0.0.1"
+  ],
+  "component/domify": [
+    "domify",
+    "1.2.2"
+  ],
+  "component/css": [
+    "css",
+    "0.0.5"
+  ],
+  "component/query": [
+    "query",
+    "0.0.3"
+  ],
+  "component/matches-selector": [
+    "matches-selector",
+    "0.1.2"
+  ],
+  "component/event": [
+    "event",
+    "0.1.3"
+  ],
+  "component/events": [
+    "events",
+    "1.0.6"
+  ],
+  "component/delegate": [
+    "delegate",
+    "0.2.1"
+  ],
+  "component/json-fallback": [
+    "json-fallback",
+    "1.0.0"
+  ],
+  "component/json": [
+    "json",
+    "0.0.2"
+  ],
+  "discore/closest": [
+    "closest",
+    "0.1.2"
+  ],
+  "component/raf": [
+    "raf",
+    "1.1.3"
+  ]
 }

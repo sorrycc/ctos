@@ -1,6 +1,7 @@
 'use strict';
 
 var path = require('path');
+var join = path.join;
 var fs = require('fs-extra');
 var util = require('util');
 var request = require('request');
@@ -94,7 +95,7 @@ function doTransform(dir, opt, cb) {
 
   // write deps to deps.json
   if (opt.save) {
-    writeDeps(newPkg.name, newPkg.repo);
+    writeDeps(newPkg.name, newPkg.repo, newPkg.version);
   }
 
   // publish to spmjs.io
@@ -104,8 +105,16 @@ function doTransform(dir, opt, cb) {
   });
 }
 
-function writeDeps(name, repo) {
-  
+function writeDeps(name, repo, version) {
+  var depsFile = join(__dirname, './deps.json');
+  var deps = readJSON(depsFile);
+  if (deps[repo]) {
+    log.error('dep exists', repo);
+    return;
+  }
+
+  deps[repo] = [name, version];
+  fs.writeFileSync(depsFile, JSON.stringify(deps, null, 2));
 }
 
 function getTags(repo, opt, cb) {
