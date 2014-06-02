@@ -170,5 +170,33 @@
   "timoxley/offset": [
     "offset",
     "0.0.3"
+  ],
+  "component/transform-property": [
+    "transform-property",
+    "0.0.1"
+  ],
+  "component/has-translate3d": [
+    "has-translate3d",
+    "0.0.3"
+  ],
+  "yields/css-ease": [
+    "css-ease",
+    "0.0.1"
+  ],
+  "component/once": [
+    "once",
+    "0.0.1"
+  ],
+  "yields/has-transitions": [
+    "has-transitions",
+    "0.0.1"
+  ],
+  "ecarter/css-emitter": [
+    "css-emitter",
+    "0.1.1"
+  ],
+  "yields/after-transition": [
+    "after-transition",
+    "0.0.1"
   ]
 }
