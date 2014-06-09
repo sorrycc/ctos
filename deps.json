@@ -131,10 +131,6 @@
     "event",
     "0.1.3"
   ],
-  "component/events": [
-    "events",
-    "1.0.6"
-  ],
   "component/delegate": [
     "delegate",
     "0.2.1"
@@ -198,5 +194,29 @@
   "yields/after-transition": [
     "after-transition",
     "0.0.1"
+  ],
+  "component/map": [
+    "map",
+    "0.0.1"
+  ],
+  "matthewmueller/debounce": [
+    "debounce",
+    "0.0.1"
+  ],
+  "matthewmueller/throttle": [
+    "throttle",
+    "0.0.1"
+  ],
+  "visionmedia/superagent": [
+    "superagent",
+    "0.18.0"
+  ],
+  "matthewmueller/menu": [
+    "menu",
+    "0.1.1"
+  ],
+  "matthewmueller/autocomplete": [
+    "autocomplete",
+    "0.1.0"
   ]
 }
